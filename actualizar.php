@@ -17,7 +17,7 @@ $row = mysqli_fetch_array($query);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" href="styles.php" />
-    <title>Actualizar</title>
+    <title>ACTUALIZAR</title>
   </head>
   <body>
     <h1><i>ACTUALIZAR INFORMACIÓN</i></h1>
