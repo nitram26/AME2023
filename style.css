@@ -102,3 +102,8 @@ body {
 .h1{
   color: blue;
 }
+
+.proceso{
+  margin: 20px;
+  font-size: 35px;
+}
