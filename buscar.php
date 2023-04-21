@@ -28,7 +28,7 @@ $con = conectar();
       <form action="" method="get">
         <input type="text" name='busqueda' class="buscar">
         <input type="submit" name='enviar' value='BUSCAR' class="btn">
-        <a href="http://localhost/L15BB_AME/" class="buscar">IR AL INDEX</a>
+        <a href="http://localhost/AME2023/" class="buscar">IR AL INDEX</a>
       </form>
     </div>
   </div>

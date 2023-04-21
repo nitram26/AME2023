@@ -177,11 +177,11 @@ $query = mysqli_query($con, $sql);
                   <input type="submit" class="btn" value="INGRESAR DATOS" />
                 </td>
                 <td style="background-color: darkcyan">
-                  <a href="http://localhost/L15BB_AME/buscar.php" class="buscar"
+                  <a href="http://localhost/AME2023/buscar.php" class="buscar"
                     ><i>IR A BUSCAR</i></a
                   >
                   <a
-                    href="http://localhost/L15BB_AME/registros.php"
+                    href="http://localhost/AME2023/registros.php"
                     class="buscar1"
                     ><i>IR A REGISTROS</i></a
                   >
