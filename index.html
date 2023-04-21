@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="form">
+      <form class="form-login">
+        <h5>BIENVENIDA/O</h5>
+        <input
+          class="controls"
+          type="text"
+          id="usuario"
+          placeholder="USUARIO"
+        />
+        <input
+          class="controls"
+          type="password"
+          name="contrasena"
+          id="contraseña"
+          placeholder="CONTRASEÑA"
+        />
+        <input
+          class="buttons"
+          id="boton"
+          type="button"
+          value="INGRESAR"
+          onclick="login()"
+        />
+        <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+      </form>
+    </div>
+    <script src="/login.js"></script>
+  </body>
+</html>

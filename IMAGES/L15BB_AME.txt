@@ -1,0 +1,735 @@
+L15BB_AME
+conexion.php
+
+<?php
+function conectar(){
+    $host="localhost";
+    $user="root";
+    $pass="";
+
+    $bd="alumnos";
+
+    $con=mysqli_connect($host,$user,$pass);
+
+    mysqli_select_db($con,$bd);
+
+    return $con;
+}
+?>
+//------------------------------------------------------------
+index.php
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="form">
+      <form class="form-login">
+        <h5>BIENVENIDA/O</h5>
+        <input
+          class="controls"
+          type="text"
+          id="usuario"
+          placeholder="USUARIO"
+        />
+        <input
+          class="controls"
+          type="password"
+          name="contrasena"
+          id="contraseña"
+          placeholder="CONTRASEÑA"
+        />
+        <input
+          class="buttons"
+          id="boton"
+          type="button"
+          value="INGRESAR"
+          onclick="login()"
+        />
+        <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+      </form>
+    </div>
+    <script src="/login.js"></script>
+  </body>
+</html>
+//---------------------------------------------------------------------
+insertar.php
+
+<?php
+include("conexion.php");
+$con=conectar();
+///////////////////////////////////
+$id=$_POST['id'];
+$nombres=$_POST['nombres'];
+$apellido_p=$_POST['apellido_p'];
+$apellido_m=$_POST['apellido_m'];
+$sexo=$_POST['sexo'];
+$fecha_n=$_POST['fecha_n'];
+$email=$_POST['email'];
+$celular=$_POST['celular'];
+$egreso=$_POST['egreso'];
+$red=$_POST['red'];
+$condicion=$_POST['condicion'];
+$distrito=$_POST['distrito'];
+$direccion=$_POST['direccion'];
+
+
+// ----------------------------------------
+$ejemplo=$_FILES['ejemplo'] ["name"];
+$ruta=$_FILES["ejemplo"] ["tmp_name"];
+$destino="IMAGES/".$ejemplo;
+copy($ruta, $destino); 
+//////////////////////////////////////////
+
+$sql="INSERT INTO alumno VALUES('$id','$nombres','$apellido_p','$apellido_m','$sexo',
+ '$fecha_n', '$email', '$celular', '$egreso', '$red', '$condicion', '$distrito', '$direccion','$destino')";
+
+$query= mysqli_query($con,$sql);
+
+if($query){
+    Header("Location: index.php");
+   
+}
+//---------------------------------------------------------------------------
+
+buscar.php
+<?php
+include("conexion.php");
+$con = conectar();
+//PARA SABER SI FUNCIONA LA CONEXIÓN 
+// if ($con) {
+//  echo "HASTA AQUÍ TODO BIEN";
+//}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="styles.php">
+  <title>BUSCAR</title>
+</head>
+
+<!-- /////////////////////////////////////// -->
+
+<body>
+  <div class="buscar7">
+    <h2 style="padding-left: 200px;"><i>ISTP "SAN PEDRO DEL VALLE DE MALA"</i></h2>
+    <H1><i>INGRESE UNA REFERENCIA</i></H1>
+    <div class="table">
+      <form action="" method="get">
+        <input type="text" name='busqueda' class="buscar">
+        <input type="submit" name='enviar' value='BUSCAR' class="btn">
+        <a href="http://localhost/L15BB_AME/" class="buscar">IR AL INDEX</a>
+      </form>
+    </div>
+  </div>
+  <br><br>
+  <hr>
+  <!-- /////////////////////////////////////// -->
+  <H2>RESULTADO</H2>
+  <?php
+  if (isset($_GET['enviar'])) {
+    $busqueda = $_GET['busqueda'];
+
+    $consulta = $con->query("SELECT * FROM alumno WHERE (
+   id LIKE '%$busqueda%' OR  
+   nombres LIKE '%$busqueda%' OR
+   apellido_p LIKE '%$busqueda%' OR
+   apellido_m LIKE '%$busqueda%' OR
+   sexo LIKE '%$busqueda%' OR
+   fecha_n LIKE '%$busqueda%' OR
+   email LIKE '%$busqueda%' OR
+  egreso LIKE '%$busqueda%' OR
+  red LIKE '%$busqueda%' OR
+   condicion LIKE '%$busqueda%' OR
+   distrito LIKE '%$busqueda%' OR
+   direccion LIKE '%$busqueda%' 
+ 
+   
+   );    
+    ");
+
+  ?>
+    <table>
+      <thead class="">
+        <TH>ID</TH>
+        <th>NOMBRES </th>
+        <TH>APELLIDO_P</TH>
+        <TH>APELLIDO_M</TH>
+        <TH>SEXO</TH>
+        <TH>FECHA DE NACIMIENTO</TH>
+        <TH>EMAIL</TH>
+        <TH>CELULAR</TH>
+        <TH>EGRESO</TH>
+        <TH>RED</TH>
+        <TH>CONDICION</TH>
+        <TH>DISTRITO</TH>
+        <TH>DIRECCION</TH>
+
+
+
+        <TH>EJEMPLO</TH>
+        <th>IMAGEN</th>
+      </thead>
+
+      <?php
+      while ($row = $consulta->fetch_array()) {
+      ?>
+        <!-- //////////////////////////////////////////////////////// -->
+        <tbody>
+          <td class="td"><?php echo $row['id']; ?></td>
+          <td class="td"><?php echo $row['nombres']; ?></td>
+          <td class="td"><?php echo $row['apellido_p']; ?></td>
+          <td class="td"><?php echo $row['apellido_m']; ?></td>
+          <td class="td"><?php echo $row['sexo']; ?></td>
+          <td class="td"><?php echo $row['fecha_n']; ?></td>
+          <td class="td"><?php echo $row['email']; ?></td>
+          <td class="td"><?php echo $row['celular']; ?></td>
+          <td class="td"><?php echo $row['egreso']; ?></td>
+          <td class="td"><?php echo $row['red']; ?></td>
+          <td class="td"><?php echo $row['condicion']; ?></td>
+          <td class="td"><?php echo $row['distrito']; ?></td>
+          <td class="td"><?php echo $row['direccion']; ?></td>
+
+          <!-- /////////////////////////////////////////////////////////////// -->
+          <td class="td"><?php echo $row['ejemplo']; ?></td>
+          <td><?php echo '<img src="' . $row['ejemplo'] . '" width="100" height="100">'; ?></td>
+        </tbody>
+    <?php
+      }
+    }
+    ?>
+    <hr>
+    </table>
+</body>
+
+</html>
+//----------------------------------------------------------------------------------
+delete.php
+<?php
+
+include("conexion.php");
+$con=conectar();
+
+$id=$_GET['id'];
+
+$sql="DELETE FROM alumno  WHERE id='$id'";
+$query=mysqli_query($con,$sql);
+
+    if($query){
+        Header("Location: index.php");
+    }
+?>
+//---------------------------------------------------------------------------------------
+registros.php
+
+<?php
+include("conexion.php");
+$con = conectar();
+
+$sql = "SELECT * FROM alumno";
+$query = mysqli_query($con, $sql);
+?>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title> </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.php">
+    <script>
+        // do {
+        //     clave = prompt('INTRODUZCA SU CLAVE')
+        // } while (clave != '2024')
+    </script>
+</head>
+<body>
+  <!-- //////////////////////////////////////////////////// -->
+<div class="">
+<table class="">
+<thead class="">
+    <tr class="">
+        <th class="th">ID</th>
+        <th class="th">NOMBRES </th>
+        <th class="th">APELLIDO_P</th>
+        <th class="th">APELLIDO_M</th>
+        <th class="th">SEXO</th>
+        <th class="th">FECHA NACIMIENTO</th>
+        <th class="th">EMAIL</th>
+        <th class="th">CELULAR</th>
+        <th class="th">EGRESO</th>
+        <th class="th">RED</th>
+        <th class="th">CONDICIÓN</th>
+        <th class="th">DISTRITO</th>
+        <th class="th">DIRECCIÓN</th>
+
+        <!-- ------------------------------------ -->
+        <th class="th">RUTA DE IMAGEN</th>
+        <th class="th">EDITAR</th>
+        <th class="th">ELIMINAR</th>
+
+    </tr>
+</thead>
+    <tbody>
+        <?php
+        while ($row = mysqli_fetch_array($query)) {
+        ?>
+            <tr class="th">
+                <th class="th"><?php echo $row['id'] ?></th>
+                <th class="th"><?php echo $row['nombres'] ?></th>
+                <th class="th"><?php echo $row['apellido_p'] ?></th>
+                <th class="th"><?php echo $row['apellido_m'] ?></th>
+                <th class="th"><?php echo $row['sexo'] ?></th>
+                <th class="th"><?php echo $row['fecha_n'] ?></th>
+                <th class="th"><?php echo $row['email'] ?></th>
+                <th class="th"><?php echo $row['celular'] ?></th>
+                <th class="th"><?php echo $row['egreso'] ?></th>
+                <th class="th"><?php echo $row['red'] ?></th>
+                <th class="th"><?php echo $row['condicion'] ?></th>
+                <th class="th"><?php echo $row['distrito'] ?></th>
+                <th class="th"><?php echo $row['direccion'] ?></th>
+<!-- ----------------------------------------------------- -->
+                <th class="th"><?php echo $row['ejemplo'] ?></th>
+                <th class="th"><a href="actualizar.php?id=<?php echo $row['id'] ?>" class="bot">EDITAR</a></th>
+                <th class="th"><a href="delete.php?id=<?php echo $row['id'] ?>" class="bot">ELIMINAR</a></th>
+            </tr>
+        <?php
+        }
+        ?>
+    </tbody>
+</table>
+</div>
+</div>
+</div>
+  
+</body>
+
+</html>
+//------------------------------------------------------------------------------------------------------------------
+
+actualizar.php
+
+<?php
+include("conexion.php");
+$con = conectar();
+
+$id = $_GET['id'];
+
+$sql = "SELECT * FROM alumno WHERE id='$id'";
+$query = mysqli_query($con, $sql);
+
+$row = mysqli_fetch_array($query);
+?>
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="styles.php" />
+    <title>Actualizar</title>
+  </head>
+  <body>
+    <h1><i>ACTUALIZAR INFORMACIÓN</i></h1>
+    <div class="header">
+      <form action="update.php" method="POST">
+        <table>
+          <tr>
+            <input type="hidden" name="id" value="<?php echo $row['id']  ?>" />
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="nombres"
+                placeholder="NOMBRES "
+                value="<?php echo $row['nombres']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="apellido_p"
+                placeholder="APELLIDO_P"
+                value="<?php echo $row['apellido_p']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="apellido_m"
+                placeholder="APELLIDO_M"
+                value="<?php echo $row['apellido_m']  ?>"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="sexo"
+                placeholder="SEXO"
+                value="<?php echo $row['sexo']  ?>"
+              />
+            </td>
+            <td>
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="fecha_n"
+                placeholder="FECHA DE NACIMIENTO"
+                value="<?php echo $row['fecha_n']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="email"
+                placeholder="EMAIL"
+                value="<?php echo $row['email']  ?>"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="celular"
+                placeholder="CELULAR"
+                value="<?php echo $row['celular']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="egreso"
+                placeholder="AÑO DE EGRESO"
+                value="<?php echo $row['egreso']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="red"
+                placeholder="RED"
+                value="<?php echo $row['red']  ?>"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="condicion"
+                placeholder="CONDICION"
+                value="<?php echo $row['condicion']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="distrito"
+                placeholder="DISTRITO"
+                value="<?php echo $row['distrito']  ?>"
+              />
+            </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="direccion"
+                placeholder="DIRECCION"
+                value="<?php echo $row['direccion']  ?>"
+              />
+            </td>
+          </tr>
+        </table>
+ <!-- ------------------------------------  -->
+        <input
+          type="text"
+          class="ingresarDatos"
+          name="ejemplo"
+          placeholder="EJEMPLO"
+          value="<?php echo $row['ejemplo']  ?>"
+        />
+        <input type="submit" class="inputId" value="ACTUALIZAR" />
+      </form>
+    </div>
+  </body>
+</html>
+
+//-------------------------------------------------------------------------------------
+actualizar.php
+
+
+<?php
+include("conexion.php");
+$con=conectar();
+
+$id=$_POST['id'];
+$nombres=$_POST['nombres'];
+$apellido_p=$_POST['apellido_p'];
+$apellido_m=$_POST['apellido_m'];
+$sexo=$_POST['sexo'];
+$fecha_n=$_POST['fecha_n'];
+$email=$_POST['email'];
+$celular=$_POST['celular'];
+$egreso=$_POST['egreso'];
+$red=$_POST['red'];
+$condicion=$_POST['condicion'];
+$distrito=$_POST['distrito'];
+$direccion=$_POST['direccion'];
+
+$ejemplo=$_POST['ejemplo'];
+// -----------------------------------------------
+$sql="UPDATE alumno SET  nombres='$nombres', 
+apellido_p='$apellido_p',
+apellido_m='$apellido_m',
+sexo='$sexo',
+fecha_n='$fecha_n',
+email='$email',
+celular='$celular',
+egreso='$egreso',
+red='$red',
+condicion='$condicion',
+distrito='$distrito',
+direccion='$direccion',
+
+ejemplo='$ejemplo' WHERE id='$id'";
+// --------------------------------------------------
+$query=mysqli_query($con,$sql);
+
+    if($query){
+        Header("Location: index.php");
+    }
+?>
+
+//-----------------------------------------------------------
+index.html (login)
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <title>LOGIN</title>
+  </head>
+  <body>
+    <br />
+    <br />
+    <div class="form">
+      <form class="form-login">
+        <h5>BIENVENIDA/O</h5>
+        <input
+          class="controls"
+          type="text"
+          id="usuario"
+          placeholder="USUARIO"
+        />
+        <input
+          class="controls"
+          type="password"
+          name="contrasena"
+          id="contraseña"
+          placeholder="CONTRASEÑA"
+        />
+        <input
+          class="buttons"
+          id="boton"
+          type="button"
+          value="INGRESAR"
+          onclick="login()"
+        />
+        <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+      </form>
+    </div>
+    <script src="/login.js"></script>
+  </body>
+</html>
+
+//------------------------------------------------------------------------------
+login.js
+
+function login() {
+    var user, pass;
+    user = document.getElementById("usuario").value;
+    pass = document.getElementById("contraseña").value;
+    if (user == "DSI" && pass== "2024") {
+    
+        window.location ="10 RELOJ.HTML"
+
+    }else{
+   alert(`\n \n ERROR AL INGRESAR DATOS  \n POR FAVOR, INTÉNTELO UNA VEZ MÁS`)
+    }
+}  
+
+//--------------------------------------------------------------------------------
+
+10RELOJ.HTML
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="login.css"> -->
+    <title>PÁGINA DE PRUEBAS</title>
+  </head>
+  <body>
+    <h1
+      style="
+        color: white;
+        text-align: right;
+        margin-right: 60px;
+        margin-top: 44px;
+        font-size: 40px;
+        font-style: italic;
+      "
+    >
+      EGRESADOS DSI <br />AME 2024
+    </h1>
+
+    <div style="margin-right: 60px; font-size: 40px; text-decoration: none">
+      <a href="http://localhost/L15BB_AME/" class="ingreso">*</a>
+    </div>
+
+    <div class="enlace">
+      <a href="http://localhost/L15BB_AME/"
+        ><img src="/IMAGES/ISTP_SVM.jpg" alt="" class="enlace1"
+      /></a>
+    </div>
+    <div class="wrap">
+      <div class="widget">
+        <div class="fecha">
+          <p id="diaSemana" class="diaSemana"></p>
+          <p id="dia" class="dia"></p>
+          <p>de</p>
+          <p id="mes" class="mes"></p>
+          <p>del</p>
+          <p id="year" class="year"></p>
+        </div>
+
+        <div class="reloj">
+          <p id="horas" class="horas"></p>
+          <p>:</p>
+          <p id="minutos" class="minutos"></p>
+          <p>:</p>
+          <div class="Segundos">
+            <p id="ampm" class="ampm"></p>
+            <p id="segundos" class="segundos"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////// -->
+    <!-- LOGIN -->
+
+    <!-- ////////////////////////////////////////////// -->
+    <script src="/10reloj.js"></script>
+
+    <!-- <a href="https://www.youtube.com/watch?v=IowfM4bkyb8&list=PLhSj3UTs2_yVC0iaCGf16glrrfXuiSd0G&index=27"></a> -->
+  </body>
+</html>
+
+//--------------------------------------------------------------------------------------------------------------
+
+10RELOJ.JS
+
+
+(function () {
+  let actualizarHora = function () {
+    let fecha = new Date;
+    horas = fecha.getHours(), ampm,
+    minutos = fecha.getMinutes(),
+    segundos = fecha.getSeconds(),
+    diaSemana = fecha.getDay(),
+    dia = fecha.getDate(),
+    mes = fecha.getMonth(),
+    year = fecha.getFullYear();
+
+    let pHoras = document.getElementById('horas');
+    let pAMPM = document.getElementById('ampm');
+    let pMinutos = document.getElementById('minutos');
+    let pSegundos = document.getElementById('segundos');
+    let pDiaSemana = document.getElementById('diaSemana');
+    let pDia = document.getElementById('dia');
+    let pMes = document.getElementById('mes');
+    let pYear = document.getElementById('year');
+// ---------------------------------------------
+let semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Viernes', 'Sábado'];
+
+    pDiaSemana.textContent = semana[diaSemana];
+    
+// ---------------------------------------------
+pDia.textContent = dia;
+// ---------------------------------------------
+    let meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+    pMes.textContent = meses[mes];
+    
+// ---------------------------------------------
+    pYear.textContent = year;
+// ---------------------------------------------
+    if (horas > 12) {
+      horas = horas - 12;
+      ampm = 'PM';
+    }
+    else {
+      ampm = 'AM';
+    };
+//---------------------------------------------
+    pHoras.textContent = horas;
+
+  
+    if (minutos < 10) {
+      minutos = "0" + minutos;
+    };
+    pMinutos.textContent = minutos;
+    
+    if (segundos < 10) {
+      segundos = "0" + segundos;
+    };
+    pSegundos.textContent = segundos;
+
+    pAMPM.textContent = ampm;
+    
+// ---------------------------------------------
+
+  };
+
+  actualizarHora();
+let intervalo = setInterval(actualizarHora, 1000)
+
+}());
+
+
+
+
+
+
