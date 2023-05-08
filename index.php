@@ -23,11 +23,11 @@ $query = mysqli_query($con, $sql);
     <div class="">
       <div class="">
         <!-- /////////////////////////////////////////////////////////////// -->
-        <div class="header">
+        <div class="headerdsi">
           <div class="titulo">
             <img src="IMAGES/ISTP_SVM.jpg" alt="ISTP" class="img" />
             <div>
-              <h1>
+              <h1 style= "color:white ">
                 <i
                   >INSTITUTO"SAN PEDRO DEL VALLE DE MALA"<br />Base de Datos de
                   Egresados DSI
@@ -42,46 +42,42 @@ $query = mysqli_query($con, $sql);
               enctype="multipart/form-data"
             >
               <tr>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="id"
                     placeholder="ID"
                     class="input"
-                    require
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="nombres"
                     placeholder="NOMBRES"
                     class="input"
-                    require
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="apellido_p"
                     placeholder="APELLIDO_P"
                     class="input"
-                    require
                   />
                 </td>
               </tr>
               <!-- grupo 2 ///////////////////////////////////////////////////////////-->
               <tr>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="apellido_m"
                     placeholder="APELLIDO_M"
                     class="input"
-                    require
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="sexo"
@@ -90,7 +86,7 @@ $query = mysqli_query($con, $sql);
                   />
                 </td>
 
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="date"
                     name="fecha_n"
@@ -100,7 +96,7 @@ $query = mysqli_query($con, $sql);
                 </td>
               </tr>
               <tr>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="email"
@@ -109,7 +105,7 @@ $query = mysqli_query($con, $sql);
                   />
                 </td>
 
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="celular"
@@ -117,7 +113,7 @@ $query = mysqli_query($con, $sql);
                     class="input"
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="egreso"
@@ -128,7 +124,7 @@ $query = mysqli_query($con, $sql);
               </tr>
               <!-- ///grupo3/////////////////////////////////// -->
               <tr>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="red"
@@ -136,7 +132,7 @@ $query = mysqli_query($con, $sql);
                     class="input"
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="condicion"
@@ -144,7 +140,7 @@ $query = mysqli_query($con, $sql);
                     class="input"
                   />
                 </td>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="distrito"
@@ -155,7 +151,7 @@ $query = mysqli_query($con, $sql);
               </tr>
               <!-- //grupo4/////////////////////////////////////////////////////////// -->
               <tr>
-                <td class="td">
+                <td class="tddsi">
                   <input
                     type="text"
                     name="direccion"

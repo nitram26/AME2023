@@ -18,7 +18,7 @@
     let pMes = document.getElementById('mes');
     let pYear = document.getElementById('year');
 // ---------------------------------------------
-let semana = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Viernes', 'Sábado'];
+    let semana = [ 'Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
 
     pDiaSemana.textContent = semana[diaSemana];
     
@@ -61,11 +61,6 @@ pDia.textContent = dia;
 
   actualizarHora();
 let intervalo = setInterval(actualizarHora, 1000)
-
-
-
-
-
 
 }());
 

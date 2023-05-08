@@ -53,11 +53,41 @@ margin:10px;
 padding:15px;
 width:95%;
 background:#5ea799;
+}
 
+.headere{
+border:8px double brown;
+margin:10px;
+padding:15px;
+width:95%;
+background:white;
+}
 
+.headerdsi{
+border:12px double darkcyan;
+margin:10px;
+padding:15px;
+width:95%;
+background:gray;
 }
 
 .header input{
+width:85%;
+height: 30px;
+font-size:25px;
+margin-left: 10px;
+margin-bottom:7px;
+}
+
+.headere input{
+width:85%;
+height: 30px;
+font-size:25px;
+margin-left: 10px;
+margin-bottom:7px;
+}
+
+.headerdsi input{
 width:85%;
 height: 30px;
 font-size:25px;
@@ -126,6 +156,12 @@ width:650px ;
 border:1px solid brown;
 }
 
+.tddsi{
+font-size:20px;
+width:650px ;
+border:1px solid darkcyan;
+}
+
 .buscar7{
 border:7px double brown;
 width: 95%;
@@ -138,6 +174,5 @@ background-repeat: no-repeat;
 .inputId{
     background-color:green;
     color:white;
-   
 }
 

@@ -14,9 +14,9 @@ $query = mysqli_query($con, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="styles.php">
     <script>
-        // do {
-        //     clave = prompt('INTRODUZCA SU CLAVE')
-        // } while (clave != '2024')
+        do {
+            clave = prompt('INTRODUZCA SU CLAVE')
+        } while (clave != '2023')
     </script>
 </head>
 <body>
