@@ -68,7 +68,7 @@ border:12px double darkcyan;
 margin:10px;
 padding:15px;
 width:95%;
-background:gray;
+
 }
 
 .header input{
@@ -175,4 +175,31 @@ background-repeat: no-repeat;
     background-color:green;
     color:white;
 }
+
+.select{
+    font-size:30px;
+    padding:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

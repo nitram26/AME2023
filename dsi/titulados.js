@@ -55,18 +55,18 @@ document.getElementById("boton3").onmouseout = function () {
   cambia3();
 }
 ////////////////////////
-  function cambiar4(){
-    document.getElementById("titulo4").innerHTML = (titulo.nombre4)
-  }
-  function cambia4(){
-    document.getElementById("titulo4").innerHTML = ""
-  }
- document.getElementById("boton4").onmouseover = function(){
-  cambiar4();
- }
-   document.getElementById("boton4").onmouseout = function () {
-     cambia4();
-   }
+//   function cambiar4(){
+//     document.getElementById("titulo4").innerHTML = (titulo.nombre4)
+//   }
+//   function cambia4(){
+//     document.getElementById("titulo4").innerHTML = ""
+//   }
+//  document.getElementById("boton4").onmouseover = function(){
+//   cambiar4();
+//  }
+//    document.getElementById("boton4").onmouseout = function () {
+//      cambia4();
+//    }
 ////////////////////////
   function cambiar5(){
     document.getElementById("titulo5").innerHTML = (titulo.nombre5)

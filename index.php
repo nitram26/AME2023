@@ -27,10 +27,10 @@ $query = mysqli_query($con, $sql);
           <div class="titulo">
             <img src="IMAGES/ISTP_SVM.jpg" alt="ISTP" class="img" />
             <div>
-              <h1 style= "color:white ">
+              <h1 style= "color:brown ">
                 <i
-                  >INSTITUTO"SAN PEDRO DEL VALLE DE MALA"<br />Base de Datos de
-                  Egresados DSI
+                  >INSTITUTO"SAN PEDRO DEL VALLE DE MALA"<br />
+                   DSI
                 </i>
               </h1>
             </div>
@@ -78,12 +78,16 @@ $query = mysqli_query($con, $sql);
                   />
                 </td>
                 <td class="tddsi">
-                  <input
-                    type="text"
-                    name="sexo"
-                    placeholder="SEXO"
-                    class="input"
-                  />
+                     <select name="sexo" id="sexo" class="select">
+                  <option value="">SEXO</option>
+                  <option value="masculino">MASCULINO</option>
+                  <option value="femenino">FEMENINO</option>
+                </select>
+                <select name="condicion" id="condicion" class="select">
+                  <option value="">CONDICIÓN</option>
+                  <option value="egresado">EGRESADO</option>
+                  <option value="titulado">TITULADO</option>
+                </select>
                 </td>
 
                 <td class="tddsi">
@@ -132,14 +136,7 @@ $query = mysqli_query($con, $sql);
                     class="input"
                   />
                 </td>
-                <td class="tddsi">
-                  <input
-                    type="text"
-                    name="condicion"
-                    placeholder="CONDICIÓN DEL EGRESADO"
-                    class="input"
-                  />
-                </td>
+              
                 <td class="tddsi">
                   <input
                     type="text"
@@ -148,10 +145,7 @@ $query = mysqli_query($con, $sql);
                     class="input"
                   />
                 </td>
-              </tr>
-              <!-- //grupo4/////////////////////////////////////////////////////////// -->
-              <tr>
-                <td class="tddsi">
+                     <td class="tddsi">
                   <input
                     type="text"
                     name="direccion"
@@ -160,7 +154,7 @@ $query = mysqli_query($con, $sql);
                   />
                 </td>
               </tr>
-
+              <!-- //grupo4/////////////////////////////////////////////////////////// -->
               <tr>
                 <td>
                   <input
