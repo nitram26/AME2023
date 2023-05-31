@@ -50,6 +50,7 @@ $con = conectar();
    email LIKE '%$busqueda%' OR
   egreso LIKE '%$busqueda%' OR
   red LIKE '%$busqueda%' OR
+  trabajo LIKE '%$busqueda%' OR
    condicion LIKE '%$busqueda%' OR
    distrito LIKE '%$busqueda%' OR
    direccion LIKE '%$busqueda%' 
@@ -71,6 +72,7 @@ $con = conectar();
         <TH>CELULAR</TH>
         <TH>EGRESO</TH>
         <TH>RED</TH>
+        <TH>TRABAJO</TH>
         <TH>CONDICION</TH>
         <TH>DISTRITO</TH>
         <TH>DIRECCION</TH>
@@ -96,6 +98,7 @@ $con = conectar();
           <td class="td"><?php echo $row['celular']; ?></td>
           <td class="td"><?php echo $row['egreso']; ?></td>
           <td class="td"><?php echo $row['red']; ?></td>
+          <td class="td"><?php echo $row['trabajo']; ?></td>
           <td class="td"><?php echo $row['condicion']; ?></td>
           <td class="td"><?php echo $row['distrito']; ?></td>
           <td class="td"><?php echo $row['direccion']; ?></td>

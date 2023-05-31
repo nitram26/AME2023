@@ -12,6 +12,7 @@ $email=$_POST['email'];
 $celular=$_POST['celular'];
 $egreso=$_POST['egreso'];
 $red=$_POST['red'];
+$trabajo=$_POST['trabajo'];
 $condicion=$_POST['condicion'];
 $distrito=$_POST['distrito'];
 $direccion=$_POST['direccion'];
@@ -21,15 +22,14 @@ $direccion=$_POST['direccion'];
 $ejemplo=$_FILES['ejemplo'] ["name"];
 $ruta=$_FILES["ejemplo"] ["tmp_name"];
 $destino="IMAGES/".$ejemplo;
-copy($ruta, $destino); 
+copy($ruta, $destino);
 //////////////////////////////////////////
 
 $sql="INSERT INTO alumno VALUES('$id','$nombres','$apellido_p','$apellido_m','$sexo',
- '$fecha_n', '$email', '$celular', '$egreso', '$red', '$condicion', '$distrito', '$direccion','$destino')";
+ '$fecha_n', '$email', '$celular', '$egreso', '$red', '$trabajo', '$condicion', '$distrito', '$direccion','$destino')";
 
 $query= mysqli_query($con,$sql);
 
 if($query){
     Header("Location: index.php");
-   
 }

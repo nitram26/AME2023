@@ -111,6 +111,15 @@ $row = mysqli_fetch_array($query);
                 value="<?php echo $row['red']  ?>"
               />
             </td>
+            <td class="td">
+              <input
+                type="text"
+                class="ingresarDatos"
+                name="trabajo"
+                placeholder="TRABAJO"
+                value="<?php echo $row['trabajo']  ?>"
+              />
+            </td>
           </tr>
           <tr>
             <td class="td">

@@ -128,28 +128,35 @@ $query = mysqli_query($con, $sql);
               </tr>
               <!-- ///grupo3/////////////////////////////////// -->
               <tr>
-                <td class="tddsi">
-                  <input
-                    type="text"
-                    name="red"
-                    placeholder="RED SOCIAL"
-                    class="input"
-                  />
-                </td>
-              
-                <td class="tddsi">
+                       <td class="tddsi">
                   <input
                     type="text"
                     name="distrito"
-                    placeholder="DISTRITO"
+                    placeholder="VIVE EN:DISTRITO"
                     class="input"
                   />
+                </td>
+                <td class="tddsi">
+                <select name="red" id="red" class="select">
+                  <option value=""> RedSOCIAL</option>
+                  <option value="whatsapp">WHATSAPP</option>
+                  <option value="facebook">FACEBOOK</option>
+                  <option value="twitter">TWITTER</option>
+                  <option value="telegram">TELEGRAM</option>
+                  <option value="otra">OTRA</option>
+                </select>
+                <select name="trabajo" id="trabajo" class="select">
+                  <option value=""> TRABAJA EN</option>
+                  <option value="carrera">CARRERA</option>
+                  <option value="similar">SIMILAR</option>
+                  <option value="otra">OTRA</option>
+                </select>
                 </td>
                      <td class="tddsi">
                   <input
                     type="text"
                     name="direccion"
-                    placeholder="DIRECCIÓN"
+                    placeholder="DIRECCIÓN LABORAL"
                     class="input"
                   />
                 </td>

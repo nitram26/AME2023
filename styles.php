@@ -177,7 +177,7 @@ background-repeat: no-repeat;
 }
 
 .select{
-    font-size:30px;
+    font-size:25px;
     padding:5px;
 }
 
