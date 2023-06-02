@@ -54,6 +54,7 @@ $row = mysqli_fetch_array($query);
               />
             </td>
           </tr>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
           <tr>
             <td class="td">
               <input
@@ -83,6 +84,7 @@ $row = mysqli_fetch_array($query);
               />
             </td>
           </tr>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
           <tr>
             <td class="td">
               <input
@@ -111,7 +113,10 @@ $row = mysqli_fetch_array($query);
                 value="<?php echo $row['red']  ?>"
               />
             </td>
-            <td class="td">
+          </tr>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
+          <tr>
+                <td class="td">
               <input
                 type="text"
                 class="ingresarDatos"
@@ -120,8 +125,6 @@ $row = mysqli_fetch_array($query);
                 value="<?php echo $row['trabajo']  ?>"
               />
             </td>
-          </tr>
-          <tr>
             <td class="td">
               <input
                 type="text"
@@ -140,7 +143,10 @@ $row = mysqli_fetch_array($query);
                 value="<?php echo $row['distrito']  ?>"
               />
             </td>
-            <td class="td">
+          </tr>
+<!-- ///////////////////////////////////////////////////////////////////////// -->
+          <tr>
+               <td class="td">
               <input
                 type="text"
                 class="ingresarDatos"

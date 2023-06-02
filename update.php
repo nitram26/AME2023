@@ -1,7 +1,7 @@
 <?php
 include("conexion.php");
 $con=conectar();
-
+// ------------------------------------------------
 $id=$_POST['id'];
 $nombres=$_POST['nombres'];
 $apellido_p=$_POST['apellido_p'];
@@ -12,6 +12,7 @@ $email=$_POST['email'];
 $celular=$_POST['celular'];
 $egreso=$_POST['egreso'];
 $red=$_POST['red'];
+$red=$_POST['trabajo'];
 $condicion=$_POST['condicion'];
 $distrito=$_POST['distrito'];
 $direccion=$_POST['direccion'];
@@ -27,6 +28,7 @@ email='$email',
 celular='$celular',
 egreso='$egreso',
 red='$red',
+trabajo='$trabajo',
 condicion='$condicion',
 distrito='$distrito',
 direccion='$direccion',

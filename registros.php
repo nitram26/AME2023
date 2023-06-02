@@ -35,6 +35,7 @@ $query = mysqli_query($con, $sql);
         <th class="th">CELULAR</th>
         <th class="th">EGRESO</th>
         <th class="th">RED</th>
+        <th class="th">TRABAJO</th>
         <th class="th">CONDICIÓN</th>
         <th class="th">DISTRITO</th>
         <th class="th">DIRECCIÓN</th>
@@ -61,6 +62,7 @@ $query = mysqli_query($con, $sql);
                 <th class="th"><?php echo $row['celular'] ?></th>
                 <th class="th"><?php echo $row['egreso'] ?></th>
                 <th class="th"><?php echo $row['red'] ?></th>
+                <th class="th"><?php echo $row['trabajo'] ?></th>
                 <th class="th"><?php echo $row['condicion'] ?></th>
                 <th class="th"><?php echo $row['distrito'] ?></th>
                 <th class="th"><?php echo $row['direccion'] ?></th>
@@ -77,7 +79,6 @@ $query = mysqli_query($con, $sql);
 </div>
 </div>
 </div>
-  
-</body>
+  </body>
 
 </html>

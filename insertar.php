@@ -16,8 +16,6 @@ $trabajo=$_POST['trabajo'];
 $condicion=$_POST['condicion'];
 $distrito=$_POST['distrito'];
 $direccion=$_POST['direccion'];
-
-
 // ----------------------------------------
 $ejemplo=$_FILES['ejemplo'] ["name"];
 $ruta=$_FILES["ejemplo"] ["tmp_name"];

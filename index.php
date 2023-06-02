@@ -94,8 +94,8 @@ $query = mysqli_query($con, $sql);
                   <input
                     type="date"
                     name="fecha_n"
-                    placeholder="FECHA_NACIMIENTO"
                     class="input"
+                    placeholder=""
                   />
                 </td>
               </tr>

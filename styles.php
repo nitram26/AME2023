@@ -89,7 +89,7 @@ margin-bottom:7px;
 
 .headerdsi input{
 width:85%;
-height: 30px;
+height: 32px;
 font-size:25px;
 margin-left: 10px;
 margin-bottom:7px;
